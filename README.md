@@ -10,7 +10,7 @@ mavenCentral()
 maven { url 'https://jitpack.io' }
 }
 }
-
+1.add jitpack repository
 
 dependencyResolutionManagement {
 repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
