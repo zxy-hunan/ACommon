@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+
 }
 
 android {
@@ -14,6 +16,15 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
+
+
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,6 +37,20 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.my-company'
+            artifactId = 'my-library'
+            version = '1.0'
+
+            afterEvaluate {
+                from components.release
+            }
+        }
     }
 }
 
