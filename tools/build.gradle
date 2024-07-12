@@ -43,9 +43,9 @@ android {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.my-company'
-            artifactId = 'my-library'
-            version = '1.0'
+            groupId = 'com.xy.tools'
+            artifactId = 'common'
+            version = '1.0.0'
 
             afterEvaluate {
                 from components.release
